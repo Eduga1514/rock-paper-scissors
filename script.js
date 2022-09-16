@@ -10,15 +10,16 @@ function getComputerChoice() {
     // Function that will randomly return rock, paper or scissors
 
     let choice;
-    const randomNum = Math.floor(Math.random * 3);
+    const randomNum = (Math.random() * 3);
+    console.log(randomNum);
 
     if (randomNum < 1) {
         choice = 'Rock';
     }
-    else if (1 <= randomNum < 2) {
+    else if (1 <= randomNum && randomNum < 2) {
         choice = 'Paper';
     }
-    else {
+    else if (2 <= randomNum < 3){
         choice = 'Scissors';
     }
 
@@ -59,8 +60,7 @@ function rpsRound(playerSelection, computerSelection) {
             result = 'You lose, Scissors beats Paper';
         }
     } else {
-        console.log(`Invalid input. The input was ${playerSelection},
-            and it must be \'Rock\', \'Paper\', or '\ Scissors'\.`);
+        console.log(`Invalid input. The input was ${playerSelection}, and it must be \'Rock\', \'Paper\', or '\ Scissors'\.`);
 
         return '';
     }
