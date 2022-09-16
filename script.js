@@ -60,12 +60,41 @@ function rpsRound(playerSelection, computerSelection) {
             result = 'You lose, Scissors beats Paper';
         }
     } else {
-        console.log(`Invalid input. The input was ${playerSelection}, and it must be \'Rock\', \'Paper\', or '\ Scissors'\.`);
-
         return '';
     }
 
     return result;
 }
 
-// 
+function game() {
+    // Function that calls the rpsRound() function 5 times and keeps scores
+    // and reports a winner or loser at the end
+
+    let score = 0;
+    let totalGames = 0;
+
+    while (totalGames < 5) {
+        let pcChoice = getComputerChoice();
+        let playerChoice = prompt('Please, enter your choice between \'Rock\', \'Paper\', or \'Scissors\': ');
+
+        let gameResult = rpsRound(playerChoice, pcChoice);
+
+        if (gameResult) {
+            if (gameResult.includes('win')) {
+                
+                ++score;
+            }
+            ++totalGames;
+        }
+        else {
+            console.log(`Invalid input. The input was ${playerChoice}, and it must be \'Rock\', \'Paper\', or '\ Scissors'\.`);
+        }
+    }
+
+    if (score >= 3) {
+        console.log('Congratulations! You won!');
+    }
+    else {
+        console.log('You lost. Better luck next time.');
+    }
+}
