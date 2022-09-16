@@ -11,7 +11,6 @@ function getComputerChoice() {
 
     let choice;
     const randomNum = (Math.random() * 3);
-    console.log(randomNum);
 
     if (randomNum < 1) {
         choice = 'Rock';
@@ -85,6 +84,8 @@ function game() {
                 ++score;
             }
             ++totalGames;
+
+            console.log(gameResult);
         }
         else {
             console.log(`Invalid input. The input was ${playerChoice}, and it must be \'Rock\', \'Paper\', or '\ Scissors'\.`);
